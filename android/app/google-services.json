@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "286885361678",
+    "firebase_url": "https://pdamgis-41eda.firebaseio.com",
+    "project_id": "pdamgis-41eda",
+    "storage_bucket": "pdamgis-41eda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286885361678:android:ec65eb794593e709a3645f",
+        "android_client_info": {
+          "package_name": "com.pdam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286885361678-5cuth1hdcpb989vi6mu0g1nd4j36fhk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pdam",
+            "certificate_hash": "8f09c657ea897d262465f46f149083bac591cf72"
+          }
+        },
+        {
+          "client_id": "286885361678-7ifu645uam7f09r5vdrksde3o83elkh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkh2eyTeKaKSLzeY-t0J2LXLwO77M3PGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286885361678-7ifu645uam7f09r5vdrksde3o83elkh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
