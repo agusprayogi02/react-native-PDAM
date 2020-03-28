@@ -2,6 +2,9 @@
   package="com.pdam">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -24,7 +27,7 @@
       <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyDiAZage5UXuBz9b5D-FetdNagooIWRZ10"/>
+        android:value="AIzaSyCkh2eyTeKaKSLzeY-t0J2LXLwO77M3PGQ"/>
     </application>
 
 </manifest>

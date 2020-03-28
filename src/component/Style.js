@@ -22,14 +22,10 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
     map: {
-        ...StyleSheet.absoluteFillObject,
+        position: 'absolute',
         height: height / 1.5,
-    },
-    gambar: {
-        marginBottom: 40,
-        backgroundColor: 'transparent',
-        width: 40,
-        height: 40,
+        width: width,
+        top: 0,
     },
     bubble: {
         backgroundColor: 'rgba(255,255,255,0.7)',
@@ -134,5 +130,36 @@ export default StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
         justifyContent: 'center'
+    },
+    floatButtom: {
+        borderWidth: 1,
+        borderColor: 'rgba(0,0,0,0.2)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 50,
+        position: 'absolute',
+        bottom: 30,
+        right: 20,
+        height: 50,
+        backgroundColor: '#eaeaea',
+        borderRadius: 100,
+    },
+    footerMap: {
+        width: width,
+        height: height - (height / 1.5),
+        bottom: 0,
+        backgroundColor: 'red',
+        borderTopColor: 'black',
+        borderTopWidth: 1,
+        position: 'absolute'
+    },
+    pinMap: {
+        width: 35,
+        height: 35,
+        top: ((height / 1.5) / 2) - 38,
+        position: 'absolute'
+    },
+    iconBtn: {
+        alignSelf: 'center'
     }
 });
