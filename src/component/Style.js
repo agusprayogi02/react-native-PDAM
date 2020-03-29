@@ -161,5 +161,33 @@ export default StyleSheet.create({
     },
     iconBtn: {
         alignSelf: 'center'
+    },
+    // navigation Header
+    btnUnit: {
+        height: 100,
+        width: 100,
+        borderRadius: 5,
+        marginTop: 30
+    },
+    Navheader: {
+        height: 80,
+        width: '100%',
+        backgroundColor: '#00bfff',
+        borderBottomEndRadius: 50,
+    },
+    dasb: {
+        fontSize: 25,
+        fontWeight: "bold",
+        marginLeft: 15,
+        marginTop: 8,
+    },
+    btnImage: {
+        borderRadius: 50,
+        height: 50,
+        width: 50,
+        backgroundColor: 'green',
+        alignSelf: 'flex-end',
+        top: -47,
+        right: 15
     }
 });

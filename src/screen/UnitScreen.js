@@ -49,7 +49,7 @@ class Unit extends Component {
     }
 
     moveLayer(name) {
-        Service.navigate('Layer', { 'Unit': name })
+        Service.navigate('Layer', { 'Unit': name, })
     }
 
     onRefresh() {
@@ -59,7 +59,7 @@ class Unit extends Component {
     }
 
     delete(dt) {
-        console.log(dt);
+        // console.log(dt);
         deleteUnit(dt).then(() => {
             this.list()
         }).catch((err) => console.log(err))
@@ -73,10 +73,10 @@ class Unit extends Component {
                     {this.state.list && <View style={[Styles.card, { paddingTop: 20, marginTop: 10 }]}>
                         {this.state.list.map(rest => (
                             <View style={{ flexDirection: "row", }} key={rest.id}>
-                                <TouchableOpacity style={[Styles.Input, { width: '75%' }]} onPress={() => this.moveLayer(rest.name)}>
+                                <TouchableOpacity style={[Styles.Input, { width: '75%' }]} onPress={() => this.moveLayer(rest)}>
                                     <Text style={[Styles.text, { fontSize: 20 }]}>{rest.name} </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={[Styles.btnshow, { backgroundColor: 'red', paddingHorizontal: 10, borderRadius: 5 }]} onPress={() => this.delete(rest.id)}>
+                                <TouchableOpacity style={[Styles.btnshow, { backgroundColor: 'red', paddingHorizontal: 10, borderRadius: 5 }]} onPress={() => this.delete(rest.name)}>
                                     <Icon name="trash" style={Styles.iconBtn} size={30} color="white" />
                                 </TouchableOpacity>
                             </View>
@@ -87,10 +87,13 @@ class Unit extends Component {
                     style={Styles.floatButtom}
                     onPress={() => {
                         Prompt.show('Tambah Unit data', 'Masukkan Nama Unit!!',
-                            data =>
+                            data => {
+                                data = data.trim()
+                                data = data.toUpperCase()
                                 addUnit(data).then(() => {
                                     this.onRefresh()
-                                }))
+                                })
+                            })
                     }}
                 >
                     <Icon name="plus" size={30} color="#01a699" />
