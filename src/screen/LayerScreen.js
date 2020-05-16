@@ -101,10 +101,10 @@ class Layer extends Component {
     this.getCurrent();
   }
 
-  _move(name, id) {
+  _move(item, id) {
     service.navigate('Maps', {
       location: this.state.getLoc,
-      id: name,
+      name: item,
     });
     var data = {
       name: this.props.navigation.state.params.Unit.id,
@@ -130,7 +130,7 @@ class Layer extends Component {
                 <View key={item.key} style={{flexDirection: 'row'}}>
                   <TouchableOpacity
                     style={[Styles.Input, {width: '75%'}]}
-                    onPress={() => this._move(item.name, item.id)}>
+                    onPress={() => this._move(item, item.id)}>
                     <Text style={[Styles.text, {fontSize: 20, margin: 5}]}>
                       {item.name}
                     </Text>

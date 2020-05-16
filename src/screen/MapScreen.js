@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import Styles from '../component/Style';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import PriceMarker from '../component/Map/PriceMarker';
@@ -47,7 +47,11 @@ class Maps extends Component {
           </Marker>
         </MapView>
         <Image style={Styles.pinMap} source={pin} />
-        <View style={Styles.footerMap}></View>
+        <View style={Styles.footerMap}>
+          <Text style={Styles.MapText}>
+            {this.props.navigation.state.params.name.name}
+          </Text>
+        </View>
         <TouchableOpacity
           style={[
             Styles.floatButtom,

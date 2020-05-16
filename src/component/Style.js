@@ -151,6 +151,7 @@ export default StyleSheet.create({
     borderTopColor: 'black',
     borderTopWidth: 1,
     position: 'absolute',
+    padding: 10,
   },
   pinMap: {
     width: 35,
@@ -188,5 +189,11 @@ export default StyleSheet.create({
     alignSelf: 'flex-end',
     top: -47,
     right: 15,
+  },
+  // Map Footer
+  MapText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    alignSelf: 'center',
   },
 });
