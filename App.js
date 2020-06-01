@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { CustomDrawer } from "./Screens/CustomDrawer";
+
+// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
+import AuthLoadingScreen from "./Screens/Loading";
+import HomeScreen from './Screens/Home';
+import SignInScreen from './Screens/SignIn'
+import { firebaseConfig } from './Screens/Config'
+import Layer from './Screens/Layer';
+import Utama from './Screens/Utama';
+import firebase from 'firebase'
+// goes here.
+
+firebase.initializeApp(firebaseConfig)
+
+const Unit = createStackNavigator({
+  Layer: { screen: Layer }, Home: { screen: HomeScreen },
+});
+const AuthStack = createStackNavigator({ SignIn: SignInScreen });
+const ini = createStackNavigator({ Utama: { screen: Utama } })
+
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: Unit,
+      Auth: AuthStack,
+      Utama: ini
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
+);
+=======
 import {createStackNavigator} from 'react-navigation-stack';
 import Home from './src/screen/HomeScreen';
 import Login from './src/screen/LoginScreen';
@@ -43,3 +81,4 @@ export default class App extends Component {
     );
   }
 }
+>>>>>>> origin/master

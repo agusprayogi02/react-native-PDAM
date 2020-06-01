@@ -8,7 +8,11 @@
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
+        "mobilesdk_app_id": "1:286885361678:android:6a7dd46e6c2af259a3645f",
+=======
         "mobilesdk_app_id": "1:286885361678:android:ec65eb794593e709a3645f",
+>>>>>>> origin/master
         "android_client_info": {
           "package_name": "com.pdam"
         }

@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+  "name": "PDAMGis",
+  "displayName": "PDAMGis"
+=======
   "name": "PDAM",
   "displayName": "PDAM"
+>>>>>>> origin/master
 }
