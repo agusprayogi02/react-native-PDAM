@@ -1,11 +1,11 @@
-import React from './node_modules/react';
-import PropTypes from './node_modules/prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { StyleSheet, Text, Animated } from 'react-native';
+import {StyleSheet, Text, Animated} from 'react-native';
 
 class AnimatedPriceMarker extends React.Component {
   render() {
-    const { amount, selected, style } = this.props;
+    const {amount, selected, style} = this.props;
 
     const background = selected.interpolate({
       inputRange: [0, 1],
@@ -26,15 +26,12 @@ class AnimatedPriceMarker extends React.Component {
               backgroundColor: background,
               borderColor: border,
             },
-          ]}
-        >
+          ]}>
           <Text style={styles.dollar}>$</Text>
           <Text style={styles.amount}>{amount}</Text>
         </Animated.View>
-        <Animated.View
-          style={[styles.arrowBorder, { borderTopColor: border }]}
-        />
-        <Animated.View style={[styles.arrow, { borderTopColor: background }]} />
+        <Animated.View style={[styles.arrowBorder, {borderTopColor: border}]} />
+        <Animated.View style={[styles.arrow, {borderTopColor: background}]} />
       </Animated.View>
     );
   }

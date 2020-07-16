@@ -2,15 +2,6 @@
 
 buildscript {
     ext {
-<<<<<<< HEAD
-        compileSdkVersion = 28
-        targetSdkVersion = 28
-        buildToolsVersion = "28.0.3"
-        googlePlayServicesVersion = "17.0.0"
-        supportLibVersion = "28.0.0"
-        androidMapsUtilsVersion  = "0.6.2"
-        minSdkVersion = 16
-=======
         compileSdkVersion           = 28
         targetSdkVersion            = 28
         buildToolsVersion           = "28.0.3"
@@ -19,7 +10,6 @@ buildscript {
         androidMapsUtilsVersion     = "0.5+"
         minSdkVersion               = 16
         googlePlayServicesAuthVersion = "16.0.1" // <--- use this version or newer
->>>>>>> origin/master
     }
     repositories {
         google()
@@ -27,11 +17,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.4.2")
-<<<<<<< HEAD
-        classpath('com.google.gms:google-services:4.3.2')
-=======
         classpath 'com.google.gms:google-services:4.3.3'
->>>>>>> origin/master
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -50,13 +36,6 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
-<<<<<<< HEAD
-        maven {
-            url  "http://dl.bintray.com/lukaville/maven"
-        }
-
-=======
->>>>>>> origin/master
         google()
         jcenter()
         maven { url 'https://jitpack.io' }

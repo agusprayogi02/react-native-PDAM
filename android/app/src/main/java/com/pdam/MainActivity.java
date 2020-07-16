@@ -10,10 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-<<<<<<< HEAD
-    return "PDAMGis";
-=======
     return "PDAM";
->>>>>>> origin/master
   }
 }

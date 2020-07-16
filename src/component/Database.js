@@ -28,25 +28,25 @@ const deleteData = data => {
   });
 };
 
-const updatePos = data => {
-  db().transaction(tx => {
-    tx.executeSql(
-      'UPDATE ' +
-        data.name +
-        " SET position = '" +
-        data.pos +
-        "' WHERE id = " +
-        data.id,
-    );
-  });
-};
+// const updatePos = data => {
+//   db().transaction(tx => {
+//     tx.executeSql(
+//       'UPDATE ' +
+//         data.name +
+//         " SET position = '" +
+//         data.pos +
+//         "' WHERE id = " +
+//         data.id,
+//     );
+//   });
+// };
 
 const createTable = name => {
   db().transaction(tx => {
     tx.executeSql(
       'CREATE TABLE IF NOT EXISTS ' +
         name +
-        '(id INTEGER PRIMARY KEY AUTOINCREMENT,key INTEGER, name TEXT(50),position TEXT(225))',
+        '(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT(50),Tname TEXT(50))',
       [],
     );
   });
@@ -55,10 +55,8 @@ const createTable = name => {
 const createData = (data, name) => {
   db().transaction(tx => {
     tx.executeSql(
-      'INSERT INTO ' +
-        name +
-        ' (key, name, position) VALUES (:id ,:name, :position)',
-      [data.id, data.name, data.position],
+      'INSERT INTO ' + name + ' (name, Tname) VALUES (:name, :Tname)',
+      [data.name, data.Tname],
     );
   });
 };
@@ -69,4 +67,53 @@ const deleteTable = name => {
   });
 };
 
-export {createTable, showAll, createData, deleteTable, updatePos, deleteData};
+const CTableMap = name => {
+  db().transaction(tx => {
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS ' +
+        name +
+        '(id INTEGER PRIMARY KEY AUTOINCREMENT, latitude TEXT(50),longitude TEXT(50),color TEXT(50))',
+      [],
+    );
+  });
+};
+
+const CMap = (data, name) => {
+  db().transaction(tx => {
+    tx.executeSql(
+      'INSERT INTO ' +
+        name +
+        ' (latitude, longitude, color) VALUES (:latitude,:longitude, :color)',
+      [data.coordinate.latitude, data.coordinate.longitude, data.color],
+    );
+  });
+};
+
+const UMap = (data, name) => {
+  db().transaction(tx => {
+    tx.executeSql(
+      'UPDATE ' +
+        name +
+        " SET latitude = '" +
+        data.coordinate.latitude +
+        "', longitude = '" +
+        data.coordinate.longitude +
+        "', color = '" +
+        data.color +
+        "' WHERE id = " +
+        data.id,
+      [],
+    );
+  });
+};
+
+const DMap = (id, name) => {
+  database.transaction(tx => {
+    tx.executeSql('DELETE FROM ' + name + ' WHERE id=' + id, [], () => {
+      console.log('Berhasil dihapus');
+    });
+  });
+};
+
+export {CMap, UMap, DMap};
+export {createTable, showAll, createData, deleteTable, deleteData, CTableMap};

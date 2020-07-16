@@ -1,10 +1,7 @@
 package com.pdam;
 
 import android.app.Application;
-<<<<<<< HEAD
-=======
 import androidx.multidex.MultiDexApplication;
->>>>>>> origin/master
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -14,11 +11,7 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-<<<<<<< HEAD
-public class MainApplication extends Application implements ReactApplication {
-=======
 public class MainApplication extends MultiDexApplication  implements ReactApplication {
->>>>>>> origin/master
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {

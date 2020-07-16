@@ -1,9 +1,5 @@
 apply plugin: "com.android.application"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 import com.android.build.OutputFile
 
 /**
@@ -125,11 +121,7 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/master
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -141,10 +133,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-<<<<<<< HEAD
-=======
         multiDexEnabled true
->>>>>>> origin/master
     }
     splits {
         abi {
@@ -172,10 +161,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-<<<<<<< HEAD
-=======
             minifyEnabled true
->>>>>>> origin/master
         }
     }
     // applicationVariants are e.g. debug, release
@@ -192,8 +178,6 @@ android {
 
         }
     }
-<<<<<<< HEAD
-=======
     packagingOptions {
         pickFirst '**/libjsc.so'
         pickFirst 'lib/x86/libc++_shared.so'
@@ -203,43 +187,23 @@ android {
         pickFirst 'lib/x86_64/libc++_shared.so'
         pickFirst 'lib/armeabi-v7a/libc++_shared.so'  
     }
->>>>>>> origin/master
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-<<<<<<< HEAD
-    // firebase
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
-    implementation "com.google.android.gms:play-services-base:16.1.0"
-    implementation "com.google.firebase:firebase-core:16.0.9"
-=======
 
     def multidex_version = "2.0.1"
     implementation 'androidx.multidex:multidex:$multidex_version'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // // Aplikasi Map
->>>>>>> origin/master
     // implementation(project(':react-native-maps')){
     //     exclude group: 'com.google.android.gms', module: 'play-services-base'
     //     exclude group: 'com.google.android.gms', module: 'play-services-maps'
     // }
-<<<<<<< HEAD
-    // implementation 'com.google.android.gms:play-services-base:17.1.0'
-    // implementation 'com.google.android.gms:play-services-maps:16.1.0'
-
-    // implementation(project(':react-native-geolocation-service')) {
-    //     exclude group: 'com.google.android.gms', module: 'play-services-location'
-    // }
-    // implementation 'com.google.android.gms:play-services-location:17.0.0'
-    // Maps
-    // compile 'com.google.android.gms:play-services-base:10.0.1'
-    // implementation 'com.google.android.gms:play-services-maps:16.0.0'
-=======
     // implementation 'com.google.android.gms:play-services-base:10.0.1'
     // implementation 'com.google.android.gms:play-services-maps:10.0.1'
->>>>>>> origin/master
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
@@ -257,9 +221,6 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
-<<<<<<< HEAD
-=======
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
->>>>>>> origin/master
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 apply plugin: 'com.google.gms.google-services'

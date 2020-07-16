@@ -1,77 +1,29 @@
 {
-<<<<<<< HEAD
-  "name": "PDAMGis",
-  "version": "1.22.1",
-=======
   "name": "PDAM",
   "version": "0.0.1",
->>>>>>> origin/master
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-<<<<<<< HEAD
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "@react-native-community/geolocation": "^2.0.2",
-    "@react-native-community/masked-view": "^0.1.6",
-    "events": "^3.1.0",
-    "firebase": "^7.14.6",
-    "geolib": "^3.2.1",
-    "node-watch": "^0.6.3",
-    "pouchdb-adapter-http": "^7.1.1",
-    "pouchdb-adapter-react-native-sqlite": "^2.0.0",
-    "pouchdb-mapreduce": "^7.1.1",
-    "react": "16.9.0",
-    "react-native": "0.61.5",
-    "react-native-elements": "^1.2.7",
-    "react-native-file-selector": "^1.0.0",
-    "react-native-geolocation-service": "^3.1.0",
-    "react-native-gesture-handler": "^1.5.3",
-    "react-native-maps": "0.26.1",
-    "react-native-permissions": "^2.0.9",
-    "react-native-reanimated": "^1.7.0",
-    "react-native-safe-area-context": "^0.6.2",
-    "react-native-safe-area-view": "^1.0.0",
-    "react-native-screens": "^2.0.0-alpha.29",
-    "react-native-simple-prompt": "^1.0.1",
-    "react-native-snap-carousel": "^3.8.4",
-    "react-native-sqlite-2": "^3.0.1",
-    "react-native-sqlite-storage": "^4.1.0",
-    "react-native-vector-icons": "^6.6.0",
-    "react-navigation": "^4.0.10",
-    "react-navigation-drawer": "^2.3.4",
-    "react-navigation-stack": "^2.0.16",
-    "rn-fetch-blob": "^0.12.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/runtime": "^7.8.3",
-    "@react-native-community/eslint-config": "^0.0.6",
-    "babel-jest": "^25.1.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^6.8.0",
-    "jest": "^25.1.0",
-    "metro-react-native-babel-preset": "^0.58.0",
-    "react-devtools": "^4.4.0",
-=======
     "lint": "eslint .",
     "postinstall": "jetifier -r"
   },
   "dependencies": {
     "@react-native-community/google-signin": "^4.0.0",
     "@react-native-community/masked-view": "^0.1.7",
-    "@react-native-firebase/app": "^6.3.4",
-    "@react-native-firebase/auth": "^6.3.4",
-    "@react-native-firebase/database": "^6.3.4",
-    "react": "16.9.0",
+    "@react-native-firebase/app": "^6.4.0",
+    "@react-native-firebase/auth": "^6.4.0",
+    "@react-native-firebase/database": "^6.4.0",
+    "@react-native-firebase/storage": "^6.4.0",
+    "geolib": "^3.2.1",
+    "react": "16.11.0",
     "react-native": "^0.62.0",
     "react-native-elements": "^1.2.7",
     "react-native-geolocation-service": "^4.0.0",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-loading-spinner-overlay": "^1.1.0",
     "react-native-maps": "0.27.1",
     "react-native-permissions": "^2.0.10",
     "react-native-reanimated": "^1.7.0",
@@ -86,14 +38,13 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "@react-native-community/eslint-config": "^0.0.7",
-    "babel-jest": "^25.1.0",
+    "@react-native-community/eslint-config": "^1.0.0",
+    "babel-jest": "^25.2.6",
     "eslint": "^6.8.0",
-    "jest": "^25.1.0",
+    "jest": "^25.2.6",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.59.0",
->>>>>>> origin/master
-    "react-test-renderer": "16.9.0"
+    "react-test-renderer": "16.11.0"
   },
   "jest": {
     "preset": "react-native"
