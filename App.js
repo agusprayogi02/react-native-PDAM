@@ -8,6 +8,7 @@ import Layer from './src/screen/LayerScreen';
 import Maps from './src/screen/MapScreen';
 import Service from './src/component/NavigationService';
 import React, {Component} from 'react';
+import Splash from './src/screen/SplaashScreen';
 
 const home = createStackNavigator({
   Home: {screen: Home},
@@ -20,11 +21,16 @@ const auth = createStackNavigator({
   Login: {screen: Login},
 });
 
+const load = createStackNavigator({
+  load1: Splash,
+  Load2: Loading,
+});
+
 const StackNav = createSwitchNavigator(
   {
+    Loading: load,
     Firt: home,
     Auth: auth,
-    Loading: Loading,
   },
   {
     initialRouteName: 'Loading',
@@ -36,7 +42,7 @@ export default class App extends Component {
   render() {
     return (
       <Navigation
-        ref={nav => {
+        ref={(nav) => {
           Service.setTopLevelNavigator(nav);
         }}
       />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Text } from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 
 const propTypes = {
   amount: PropTypes.number.isRequired,
@@ -14,12 +14,12 @@ const defaultProps = {
 
 class PriceMarker extends React.Component {
   render() {
-    const { borderColor, fontSize, amount } = this.props;
+    const {borderColor, fontSize, amount} = this.props;
     return (
       <View style={styles.container}>
-        <View style={[styles.bubble, { borderColor }]}>
+        <View style={[styles.bubble, {borderColor}]}>
           <Text style={styles.dollar}>No.</Text>
-          <Text style={[styles.amount, { fontSize }]}>{amount}</Text>
+          <Text style={[styles.amount, {fontSize}]}>{amount}</Text>
         </View>
         <View style={styles.arrowBorder} />
         <View style={styles.arrow} />
@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
   },
   dollar: {
     color: '#f00',
-    fontSize: 11
+    fontSize: 11,
   },
   amount: {
     color: 'blue',
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 13,
   },
   arrow: {

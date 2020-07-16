@@ -9,27 +9,37 @@ import {
   createTable,
   db,
   createData,
-  updatePos,
   deleteData,
+  CTableMap,
+  deleteTable,
+  CMap,
 } from '../component/Database';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+var index = 0;
 class Layer extends Component {
   constructor(props) {
     super(props);
-    this.getCurrent();
     this.state = {
       getLoc: {},
       data: null,
-      index: 0,
+      name: null,
     };
+  }
+
+  componentDidMount() {
+    this.getCurrent();
+  }
+
+  componentWillUnmount() {
+    index = 0;
   }
 
   async getCurrent() {
     const name = this.props.navigation.state.params.Unit.id;
-    const unit = this.props.navigation.state.params.Unit;
+    this.setState({name: name});
     Geolocation.getCurrentPosition(
-      loc => {
+      (loc) => {
         const coord = loc.coords;
         var location = {
           latitude: coord.latitude,
@@ -39,14 +49,14 @@ class Layer extends Component {
         };
         this.setState({getLoc: location});
       },
-      err => {
+      (err) => {
         console.log('Error: ' + err);
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
     // deleteTable()
     createTable(name);
-    (await db()).transaction(tx => {
+    (await db()).transaction((tx) => {
       tx.executeSql('SELECT * FROM ' + name, [], (rest, data) => {
         let isi = [],
           i;
@@ -55,10 +65,9 @@ class Layer extends Component {
             key: 'item1',
             id: 1,
             name: 'Layer 1',
-            position: '',
+            Tname: 'L' + name + '1',
           };
-          console.log('bisa');
-          createData(isine, name);
+          this._Add();
           isi.push(isine);
           i = 0;
         }
@@ -68,61 +77,64 @@ class Layer extends Component {
             key: 'item' + dt.id,
             id: dt.id,
             name: dt.name,
-            position: dt.position,
+            Tname: dt.Tname,
           };
           isi.push(out);
-          this.setState({index: dt.key});
+          index = dt.id;
         }
         this.setState({data: isi});
       });
     });
   }
 
-  delete(id) {
+  delete(item) {
     var data = {
-      name: this.props.navigation.state.params.Unit.id,
-      id: id,
+      name: this.state.name,
+      id: item.id,
     };
     deleteData(data);
+    deleteTable(item.Tname);
     this.getCurrent();
   }
 
   _Add() {
-    var {index} = this.state;
-    var name = this.props.navigation.state.params.Unit.id;
+    var name = this.state.name;
+    const {getLoc} = this.state;
+    index++;
     var isine = {
-      key: 'item' + index,
-      id: ++index,
       name: 'Layer ' + index,
-      position: '',
+      Tname: 'L' + name + index,
     };
     console.log('bisa');
     createData(isine, name);
     this.getCurrent();
+    CTableMap(isine.Tname);
+    var data = {
+      coordinate: getLoc,
+      color: 'red',
+    };
+    CMap(data, isine.Tname);
   }
 
-  _move(item, id) {
+  _move(item) {
     service.navigate('Maps', {
       location: this.state.getLoc,
-      name: item,
+      item: item,
     });
-    var data = {
-      name: this.props.navigation.state.params.Unit.id,
-      pos: JSON.stringify(this.state.getLoc),
-      id: id,
-    };
-    updatePos(data);
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <Text style={[Styles.text, {textAlign: 'center', fontSize: 25}]}>
+          Daftar Layer
+        </Text>
         <TouchableOpacity
           style={Styles.floatButtom}
           onPress={() => this._Add()}>
           <Icon name="plus" size={30} />
         </TouchableOpacity>
-        <View style={[Styles.card, {paddingTop: 20}]}>
+        <View style={[Styles.card, {paddingTop: 15, marginTop: 15}]}>
           {this.state.data && (
             <FlatList
               data={this.state.data}
@@ -130,23 +142,14 @@ class Layer extends Component {
                 <View key={item.key} style={{flexDirection: 'row'}}>
                   <TouchableOpacity
                     style={[Styles.Input, {width: '75%'}]}
-                    onPress={() => this._move(item, item.id)}>
+                    onPress={() => this._move(item)}>
                     <Text style={[Styles.text, {fontSize: 20, margin: 5}]}>
                       {item.name}
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    style={[
-                      Styles.btnshow,
-                      {
-                        backgroundColor: 'red',
-                        paddingHorizontal: 10,
-                        borderRadius: 5,
-                        height: 40,
-                        justifyContent: 'flex-end',
-                      },
-                    ]}
-                    onPress={() => this.delete(item.id)}>
+                    style={[Styles.btnshow, styles.deleteBtn]}
+                    onPress={() => this.delete(item)}>
                     <Icon
                       name="trash"
                       style={Styles.iconBtn}
@@ -176,5 +179,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+  },
+  deleteBtn: {
+    backgroundColor: 'red',
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    height: 40,
+    justifyContent: 'flex-end',
   },
 });

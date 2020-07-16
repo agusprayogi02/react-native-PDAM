@@ -15,7 +15,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {deleteTable} from '../component/Database';
 
 function wait(timeout) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, timeout);
   });
 }
@@ -30,13 +30,15 @@ class Unit extends Component {
   }
 
   componentDidMount() {
-    this.list();
+    this.onRefresh();
   }
 
+  componentWillUnmount() {}
+
   list() {
-    GetUnit().then(dt => {
+    GetUnit().then((dt) => {
       this.setState({list: []});
-      dt.forEach(e => {
+      dt.forEach((e) => {
         const dat = e.val();
         if (dat.uid === getUser().uid) {
           var data = [...this.state.list, dat];
@@ -62,7 +64,7 @@ class Unit extends Component {
       .then(() => {
         this.list();
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -77,15 +79,17 @@ class Unit extends Component {
             />
           }
           style={{marginBottom: 10, width: '100%', paddingLeft: 20}}>
-          <Text style={Styles.text}>Daftar Unit</Text>
+          <Text style={[Styles.text, {textAlign: 'center', fontSize: 25}]}>
+            Daftar Unit
+          </Text>
           {this.state.list && (
-            <View style={[Styles.card, {paddingTop: 20, marginTop: 10}]}>
-              {this.state.list.map(rest => (
+            <View style={[Styles.card, {paddingTop: 15, marginTop: 10}]}>
+              {this.state.list.map((rest) => (
                 <View style={{flexDirection: 'row'}} key={rest.id}>
                   <TouchableOpacity
                     style={[Styles.Input, {width: '75%'}]}
                     onPress={() => this.moveLayer(rest)}>
-                    <Text style={[Styles.text, {fontSize: 20}]}>
+                    <Text style={[Styles.text, {fontSize: 18}]}>
                       {rest.name}{' '}
                     </Text>
                   </TouchableOpacity>
@@ -114,7 +118,7 @@ class Unit extends Component {
         <TouchableOpacity
           style={Styles.floatButtom}
           onPress={() => {
-            Prompt.show('Tambah Unit data', 'Masukkan Nama Unit!!', data => {
+            Prompt.show('Tambah Unit data', 'Masukkan Nama Unit!!', (data) => {
               data = data.trim();
               data = data.toUpperCase();
               addUnit(data).then(() => {

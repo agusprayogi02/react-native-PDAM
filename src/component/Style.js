@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
   map: {
     position: 'absolute',
-    height: height / 1.5,
+    height: height / 1.6,
     width: width,
     top: 0,
   },
@@ -48,8 +48,7 @@ export default StyleSheet.create({
     width: 35,
     borderRadius: 35,
     marginLeft: 7,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'black',
   },
   btnshow: {
     height: 50,
@@ -143,20 +142,10 @@ export default StyleSheet.create({
     backgroundColor: '#eaeaea',
     borderRadius: 100,
   },
-  footerMap: {
-    width: width,
-    height: height - height / 1.5,
-    bottom: 0,
-    backgroundColor: 'red',
-    borderTopColor: 'black',
-    borderTopWidth: 1,
-    position: 'absolute',
-    padding: 10,
-  },
   pinMap: {
     width: 35,
     height: 35,
-    top: height / 1.5 / 2 - 38,
+    top: height / 1.6 / 2 - 38,
     position: 'absolute',
   },
   iconBtn: {
@@ -164,10 +153,11 @@ export default StyleSheet.create({
   },
   // navigation Header
   btnUnit: {
-    height: 100,
+    height: 115,
     width: 100,
     borderRadius: 5,
     marginTop: 30,
+    backgroundColor: '#00bfff',
   },
   Navheader: {
     height: 80,
@@ -192,8 +182,50 @@ export default StyleSheet.create({
   },
   // Map Footer
   MapText: {
+    margin: 0,
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  footerMap: {
+    width: width,
+    height: height - height / 1.6,
+    bottom: 0,
+    backgroundColor: 'rgba(68,117,10,1)',
+    position: 'absolute',
+    borderTopStartRadius: 20,
+    borderTopEndRadius: 20,
+    shadowColor: '#fff',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    elevation: 24,
+  },
+  MapTextJudul: {
+    color: 'white',
+    margin: 10,
     fontSize: 18,
     fontWeight: 'bold',
-    alignSelf: 'center',
+    marginLeft: 20,
+    width: '45%',
+  },
+  dataMap: {
+    margin: 3,
+    borderColor: '#00f',
+    borderWidth: 0.3,
+    borderRadius: 3,
+  },
+  btnCircle: {
+    backgroundColor: 'orange',
+    height: 32,
+    width: 32,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
